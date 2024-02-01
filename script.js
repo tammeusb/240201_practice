@@ -24,42 +24,73 @@ function getComputerChoice() {
 function playRound(computerChoice, playerChoice) {
 
     playerChoice = playerChoice.toLowerCase();
+    let score = 0;
 
     //computerChoice === "rock"
     if (computerChoice === "rock") {
         if (playerChoice === "rock") {
-            return "tie!";
+            return 0;
         } else if (playerChoice === "paper") {
-            return playerChoice + " beats " + computerChoice + ", good job!"
+            return 1;
         } else if (playerChoice === "scissors") {
-            return computerChoice + " beats " + playerChoice + ", sucks for you!"
+            return -1;
         }
     }
     //computerChoice === "paper"
     else if (computerChoice === "paper") {
         if (playerChoice === "paper") {
-            return "tie!";
+            return 0;
         } else if (playerChoice === "scissors") {
-            return playerChoice + " beats " + computerChoice + ", good job!"
+            score = ++score;
+            return 1;
         } else if (playerChoice === "rock") {
-            return computerChoice + " beats " + playerChoice + ", sucks for you!"
+            return -1;
         }
     } 
     //computerChoice === "scissors"
     else if (computerChoice === "scissors") {
         if (playerChoice === "scissors") {
-            return "tie!";
+            return 0;
         } else if (playerChoice === "rock") {
-            return playerChoice + " beats " + computerChoice + ", good job!"
+            score = ++score;
+            return 1;
         } else if (playerChoice === "paper") {
-            return computerChoice + " beats " + playerChoice + ", sucks for you!"
+            return -1;
         }
     }
 
 }
 
 function playGame() {
+
+    let score = 0;
+
     for (let i = 0; i < 5; i++) {
-        console.log(playRound(getComputerChoice(), prompt("Rock, Paper, Scissors!", "Choose!")));
+
+        let result = playRound(getComputerChoice(), prompt("Rock, Paper, Scissors!", "Choose!"));
+
+        if (result === -1) {
+            console.log("sucks for you!");
+            score = score - 1;
+        } else if (result === 0) {
+            console.log("tie!");
+            score = score;
+        } else if (result === 1) {
+            console.log("good job!")
+            score = score + 1;
+        }
+        
     }
+
+    if (score > 0) {
+        alert("You win!");
+    } else {
+        alert("You loose...");
+    }
+
 }
+
+//playRound returns a value: -1, 0 (tie) or 1
+
+//playGame gets value from playRound and adds, subtracts, or does nothing to a score variable
+//logs the result (instead of playRound) and returns a win/lose value depending on final score
