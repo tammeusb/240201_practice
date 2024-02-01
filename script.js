@@ -57,9 +57,15 @@ function playRound(computerChoice, playerChoice) {
         } else if (playerChoice === "paper") {
             return -1;
         }
+    } else {
+        return -1;
     }
 
 }
+
+const log = document.querySelector(".log");
+const button = document.querySelector(".play");
+button.addEventListener("click", playGame);
 
 function playGame() {
 
@@ -71,15 +77,18 @@ function playGame() {
 
         if (result === -1) {
             console.log("sucks for you!");
+            log.textContent = "sucks for you!";
             score = score - 1;
         } else if (result === 0) {
             console.log("tie!");
+            log.textContent = "tie!";
             score = score;
         } else if (result === 1) {
-            console.log("good job!")
+            console.log("good job!");
+            log.textContent = "good job!";
             score = score + 1;
         }
-        
+
     }
 
     if (score > 0) {
