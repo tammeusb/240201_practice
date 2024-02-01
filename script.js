@@ -1,8 +1,11 @@
-// get input from user 5 times
-// get input from computer 5 times by calling getComputerChoice()
-// each time run a playGame() function that runs a playRound() function 5 times, 
-//      console.log()ing each result and returning a final win/lose comparative. 
-// 
+// get input from computer with a function called getComputerChoice()
+
+// make function called playRound() that takes parameters computerChoice and playerChoice
+// to play a single round via if/else conditional and logical operators
+
+// Make a playGame() function that runs playRound() 5 times, asking for input via prompt,
+// console.log()ing each result and returning a final win/lose comparative. 
+
 
 function getComputerChoice() {
 
@@ -14,6 +17,45 @@ function getComputerChoice() {
         return "paper";
     } else if (num > (2 / 3)) {
         return "scissors";
+    }
+
+}
+
+function playRound(computerChoice, playerChoice) {
+
+    computerChoice = getComputerChoice();
+    playerChoice = prompt("Rock, Paper, Scissors:");
+    playerChoice = playerChoice.toLowerCase();
+
+    //computerChoice === "rock"
+    if (computerChoice === "rock") {
+        if (playerChoice === "rock") {
+            return "tie!";
+        } else if (playerChoice === "paper") {
+            return playerChoice + " beats " + computerChoice + ", good job!"
+        } else if (playerChoice === "scissors") {
+            return computerChoice + " beats " + playerChoice + ", sucks for you!"
+        }
+    }
+    //computerChoice === "paper"
+    else if (computerChoice === "paper") {
+        if (playerChoice === "paper") {
+            return "tie!";
+        } else if (playerChoice === "scissors") {
+            return playerChoice + " beats " + computerChoice + ", good job!"
+        } else if (playerChoice === "rock") {
+            return computerChoice + " beats " + playerChoice + ", sucks for you!"
+        }
+    } 
+    //computerChoice === "scissors"
+    else if (computerChoice === "scissors") {
+        if (playerChoice === "scissors") {
+            return "tie!";
+        } else if (playerChoice === "rock") {
+            return playerChoice + " beats " + computerChoice + ", good job!"
+        } else if (playerChoice === "paper") {
+            return computerChoice + " beats " + playerChoice + ", sucks for you!"
+        }
     }
 
 }
