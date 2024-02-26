@@ -6,6 +6,16 @@
 // Make a playGame() function that runs playRound() 5 times, asking for input via prompt,
 // console.log()ing each result and returning a final win/lose comparative. 
 
+const buttonRock = document.querySelector(".rock");
+const buttonPaper = document.querySelector(".paper");
+const buttonScissors = document.querySelector(".scissors");
+
+const choiceButtons = document.querySelectorAll(".choice");
+
+choiceButtons.forEach((button) => {
+    button.addEventListener('click', () =>
+    alert(button.className));
+})
 
 function getComputerChoice() {
 
@@ -63,15 +73,9 @@ function playRound(computerChoice, playerChoice) {
 
 }
 
-const log = document.querySelector(".log");
-const button = document.querySelector(".play");
-button.addEventListener("click", playGame);
-
 function playGame() {
 
     let score = 0;
-
-    for (let i = 0; i < 5; i++) {
 
         let result = playRound(getComputerChoice(), prompt("Rock, Paper, Scissors!", "Choose!"));
 
@@ -89,7 +93,6 @@ function playGame() {
             score = score + 1;
         }
 
-    }
 
     if (score > 0) {
         alert("You win!");
