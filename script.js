@@ -1,21 +1,28 @@
-// get input from computer with a function called getComputerChoice()
-
-// make function called playRound() that takes parameters computerChoice and playerChoice
-// to play a single round via if/else conditional and logical operators
-
-// Make a playGame() function that runs playRound() 5 times, asking for input via prompt,
-// console.log()ing each result and returning a final win/lose comparative. 
+// UI
 
 const buttonRock = document.querySelector(".rock");
 const buttonPaper = document.querySelector(".paper");
 const buttonScissors = document.querySelector(".scissors");
 
-const choiceButtons = document.querySelectorAll(".choice");
+buttonRock.addEventListener('click', () => {
+    playRound(getComputerChoice(), "rock");
+    console.log(playerScore, computerScore);
+});
 
-choiceButtons.forEach((button) => {
-    button.addEventListener('click', () =>
-    alert(button.className));
-})
+buttonPaper.addEventListener('click', () => {
+    playRound(getComputerChoice(), "paper");
+    console.log(playerScore, computerScore);
+});
+
+buttonScissors.addEventListener('click', () => {
+    playRound(getComputerChoice(), "scissors");
+    console.log(playerScore, computerScore);
+});
+
+// GAME
+
+let playerScore = 0;
+let computerScore = 0;
 
 function getComputerChoice() {
 
@@ -33,51 +40,49 @@ function getComputerChoice() {
 
 function playRound(computerChoice, playerChoice) {
 
-    playerChoice = playerChoice.toLowerCase();
-    let score = 0;
-
-    //computerChoice === "rock"
     if (computerChoice === "rock") {
         if (playerChoice === "rock") {
-            return 0;
+            return "tie"
         } else if (playerChoice === "paper") {
-            return 1;
+            ++playerScore;
+            return "player"
         } else if (playerChoice === "scissors") {
-            return -1;
+            ++computerScore;
+            return "computer"
         }
     }
-    //computerChoice === "paper"
+ 
     else if (computerChoice === "paper") {
         if (playerChoice === "paper") {
-            return 0;
+            return "tie"
         } else if (playerChoice === "scissors") {
-            score = ++score;
-            return 1;
+            ++playerScore;
+            return "player"
         } else if (playerChoice === "rock") {
-            return -1;
+            ++computerScore;
+            return "computer"
         }
     } 
-    //computerChoice === "scissors"
+
     else if (computerChoice === "scissors") {
         if (playerChoice === "scissors") {
-            return 0;
+            return "tie"
         } else if (playerChoice === "rock") {
-            score = ++score;
-            return 1;
+            ++playerScore;
+            return "player"
         } else if (playerChoice === "paper") {
-            return -1;
+            ++computerScore;
+            return "computer"
         }
     } else {
-        return -1;
+        return "ERROR";
     }
 
 }
 
 function playGame() {
 
-    let score = 0;
-
-        let result = playRound(getComputerChoice(), prompt("Rock, Paper, Scissors!", "Choose!"));
+        let result = playRound(getComputerChoice(), );
 
         if (result === -1) {
             console.log("sucks for you!");
