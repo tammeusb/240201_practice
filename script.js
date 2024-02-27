@@ -8,24 +8,24 @@ const result = document.querySelector(".result");
 const winnerMessage = document.createElement('div');
 
 buttonRock.addEventListener('click', () => {
-    playRound(getComputerChoice(), "rock");
-    result.textContent = "score: " + playerScore + " " + computerScore;
-    endGame()
+    clickChoice("rock");
 });
 
 buttonPaper.addEventListener('click', () => {
-    playRound(getComputerChoice(), "paper");
-    result.textContent = "score: " + playerScore + " " + computerScore;
-    endGame()
+    clickChoice("paper");
 });
 
 buttonScissors.addEventListener('click', () => {
-    playRound(getComputerChoice(), "scissors");
-    result.textContent = "score: " + playerScore + " " + computerScore;
-    endGame()
+    clickChoice("scissors");
 });
 
 // GAME
+
+function clickChoice(playerChoice) {
+    playRound(getComputerChoice(), playerChoice);
+    result.textContent = "score: " + playerScore + " " + computerScore;
+    endGame()
+}
 
 let playerScore = 0;
 let computerScore = 0;
@@ -94,21 +94,4 @@ function endGame() {
         document.body.appendChild(winnerMessage);
         winnerMessage.textContent = "player wins!";
     }
-    buttonRock.removeEventListener('click', () => {
-        playRound(getComputerChoice(), "rock");
-        result.textContent = "score: " + playerScore + " " + computerScore;
-        endGame()
-    });
-    
-    buttonPaper.removeEventListener('click', () => {
-        playRound(getComputerChoice(), "paper");
-        result.textContent = "score: " + playerScore + " " + computerScore;
-        endGame()
-    });
-    
-    buttonScissors.removeEventListener('click', () => {
-        playRound(getComputerChoice(), "scissors");
-        result.textContent = "score: " + playerScore + " " + computerScore;
-        endGame()
-    });
 }
