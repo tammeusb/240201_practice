@@ -5,20 +5,42 @@ const buttonPaper = document.querySelector(".paper");
 const buttonScissors = document.querySelector(".scissors");
 
 const result = document.querySelector(".result");
+const winnerMessage = document.createElement('div');
 
 buttonRock.addEventListener('click', () => {
     playRound(getComputerChoice(), "rock");
-    result.textContent = playerScore + " " + computerScore;
+    result.textContent = "score: " + playerScore + " " + computerScore;
+    if (computerScore === 5) {
+        document.body.appendChild(winnerMessage);
+        winnerMessage.textContent = "Computer wins!";
+    } else if (playerScore === 5) {
+        document.body.appendChild(winnerMessage);
+        winnerMessage.textContent = "player wins!";
+    }
 });
 
 buttonPaper.addEventListener('click', () => {
     playRound(getComputerChoice(), "paper");
-    result.textContent = playerScore + " " + computerScore;
+    result.textContent = "score: " + playerScore + " " + computerScore;
+    if (computerScore === 5) {
+        document.body.appendChild(winnerMessage);
+        winnerMessage.textContent = "Computer wins!";
+    } else if (playerScore === 5) {
+        document.body.appendChild(winnerMessage);
+        winnerMessage.textContent = "player wins!";
+    }
 });
 
 buttonScissors.addEventListener('click', () => {
     playRound(getComputerChoice(), "scissors");
-    result.textContent = playerScore + " " + computerScore;
+    result.textContent = "score: " + playerScore + " " + computerScore;
+    if (computerScore === 5) {
+        document.body.appendChild(winnerMessage);
+        winnerMessage.textContent = "Computer wins!";
+    } else if (playerScore === 5) {
+        document.body.appendChild(winnerMessage);
+        winnerMessage.textContent = "player wins!";
+    }
 });
 
 // GAME
@@ -81,35 +103,3 @@ function playRound(computerChoice, playerChoice) {
     }
 
 }
-
-function playGame() {
-
-        let result = playRound(getComputerChoice(), );
-
-        if (result === -1) {
-            console.log("sucks for you!");
-            log.textContent = "sucks for you!";
-            score = score - 1;
-        } else if (result === 0) {
-            console.log("tie!");
-            log.textContent = "tie!";
-            score = score;
-        } else if (result === 1) {
-            console.log("good job!");
-            log.textContent = "good job!";
-            score = score + 1;
-        }
-
-
-    if (score > 0) {
-        alert("You win!");
-    } else {
-        alert("You loose...");
-    }
-
-}
-
-//playRound returns a value: -1, 0 (tie) or 1
-
-//playGame gets value from playRound and adds, subtracts, or does nothing to a score variable
-//logs the result (instead of playRound) and returns a win/lose value depending on final score
