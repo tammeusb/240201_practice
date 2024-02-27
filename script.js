@@ -4,19 +4,21 @@ const buttonRock = document.querySelector(".rock");
 const buttonPaper = document.querySelector(".paper");
 const buttonScissors = document.querySelector(".scissors");
 
+const result = document.querySelector(".result");
+
 buttonRock.addEventListener('click', () => {
     playRound(getComputerChoice(), "rock");
-    console.log(playerScore, computerScore);
+    result.textContent = playerScore + " " + computerScore;
 });
 
 buttonPaper.addEventListener('click', () => {
     playRound(getComputerChoice(), "paper");
-    console.log(playerScore, computerScore);
+    result.textContent = playerScore + " " + computerScore;
 });
 
 buttonScissors.addEventListener('click', () => {
     playRound(getComputerChoice(), "scissors");
-    console.log(playerScore, computerScore);
+    result.textContent = playerScore + " " + computerScore;
 });
 
 // GAME
