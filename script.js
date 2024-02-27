@@ -22,13 +22,15 @@ buttonScissors.addEventListener('click', () => {
 // GAME
 
 function clickChoice(playerChoice) {
-    playRound(getComputerChoice(), playerChoice);
+    roundWinner = playRound(getComputerChoice(), playerChoice);
     result.textContent = "score: " + playerScore + " " + computerScore;
+    updateRound(roundWinner);
     endGame()
 }
 
 let playerScore = 0;
 let computerScore = 0;
+let roundWinner = '';
 
 function getComputerChoice() {
 
@@ -85,6 +87,12 @@ function playRound(computerChoice, playerChoice) {
     }
 
 }
+
+const roundStatus = document.querySelector(".roundStatus");
+
+function updateRound() {
+    roundStatus.textContent = roundWinner;
+};
 
 function endGame() {
     if (computerScore === 5) {
