@@ -10,37 +10,19 @@ const winnerMessage = document.createElement('div');
 buttonRock.addEventListener('click', () => {
     playRound(getComputerChoice(), "rock");
     result.textContent = "score: " + playerScore + " " + computerScore;
-    if (computerScore === 5) {
-        document.body.appendChild(winnerMessage);
-        winnerMessage.textContent = "Computer wins!";
-    } else if (playerScore === 5) {
-        document.body.appendChild(winnerMessage);
-        winnerMessage.textContent = "player wins!";
-    }
+    endGame()
 });
 
 buttonPaper.addEventListener('click', () => {
     playRound(getComputerChoice(), "paper");
     result.textContent = "score: " + playerScore + " " + computerScore;
-    if (computerScore === 5) {
-        document.body.appendChild(winnerMessage);
-        winnerMessage.textContent = "Computer wins!";
-    } else if (playerScore === 5) {
-        document.body.appendChild(winnerMessage);
-        winnerMessage.textContent = "player wins!";
-    }
+    endGame()
 });
 
 buttonScissors.addEventListener('click', () => {
     playRound(getComputerChoice(), "scissors");
     result.textContent = "score: " + playerScore + " " + computerScore;
-    if (computerScore === 5) {
-        document.body.appendChild(winnerMessage);
-        winnerMessage.textContent = "Computer wins!";
-    } else if (playerScore === 5) {
-        document.body.appendChild(winnerMessage);
-        winnerMessage.textContent = "player wins!";
-    }
+    endGame()
 });
 
 // GAME
@@ -102,4 +84,31 @@ function playRound(computerChoice, playerChoice) {
         return "ERROR";
     }
 
+}
+
+function endGame() {
+    if (computerScore === 5) {
+        document.body.appendChild(winnerMessage);
+        winnerMessage.textContent = "Computer wins!";
+    } else if (playerScore === 5) {
+        document.body.appendChild(winnerMessage);
+        winnerMessage.textContent = "player wins!";
+    }
+    buttonRock.removeEventListener('click', () => {
+        playRound(getComputerChoice(), "rock");
+        result.textContent = "score: " + playerScore + " " + computerScore;
+        endGame()
+    });
+    
+    buttonPaper.removeEventListener('click', () => {
+        playRound(getComputerChoice(), "paper");
+        result.textContent = "score: " + playerScore + " " + computerScore;
+        endGame()
+    });
+    
+    buttonScissors.removeEventListener('click', () => {
+        playRound(getComputerChoice(), "scissors");
+        result.textContent = "score: " + playerScore + " " + computerScore;
+        endGame()
+    });
 }
