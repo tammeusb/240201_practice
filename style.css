@@ -1,0 +1,26 @@
+body {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    background-color: lavender;
+}
+
+.dark {
+    background-color: rgb(217, 217, 217);
+    padding: 10px;
+}
+
+.content {
+    padding: 50px;
+    height: 200px;
+}
+
+.choice {
+    height: 50px;
+    width: 50px;
+    margin-bottom: 20px;
+}
+
+.message {
+    margin-top: 10px;
+}

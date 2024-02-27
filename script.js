@@ -5,7 +5,7 @@ const buttonPaper = document.querySelector(".paper");
 const buttonScissors = document.querySelector(".scissors");
 
 const result = document.querySelector(".result");
-const winnerMessage = document.createElement('div');
+const winnerMessage = document.querySelector(".message");
 
 buttonRock.addEventListener('click', () => {
     clickChoice("rock");
@@ -88,10 +88,8 @@ function playRound(computerChoice, playerChoice) {
 
 function endGame() {
     if (computerScore === 5) {
-        document.body.appendChild(winnerMessage);
         winnerMessage.textContent = "Computer wins!";
     } else if (playerScore === 5) {
-        document.body.appendChild(winnerMessage);
         winnerMessage.textContent = "player wins!";
     }
 }
