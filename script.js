@@ -94,18 +94,28 @@ function updateRound() {
     roundStatus.textContent = roundWinner;
 };
 
+const resetButton = document.createElement('button');
+resetButton.innerHTML = "reset";
+resetButton.addEventListener('click', () => {
+    window.location.reload();
+})
+
 function endGame() {
     if (computerScore === 5) {
         winnerMessage.textContent = "Computer wins!";
         buttonRock.onclick = null;
         buttonPaper.onclick = null;
         buttonScissors.onclick = null;
-        
+
+        winnerMessage.appendChild(resetButton);
+
     } else if (playerScore === 5) {
         winnerMessage.textContent = "player wins!";
 
         buttonRock.onclick = null;
         buttonPaper.onclick = null;
         buttonScissors.onclick = null;
+
+        winnerMessage.appendChild(resetButton);
     }
 }
