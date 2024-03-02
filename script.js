@@ -7,6 +7,9 @@ const buttonScissors = document.querySelector(".scissors");
 const result = document.querySelector(".result");
 const winnerMessage = document.querySelector(".message");
 
+const playerPicked = document.querySelector('.player-pick');
+const computerPicked = document.querySelector('.computer-pick');
+
 buttonRock.onclick = () => {
     clickChoice("rock");
 };
@@ -22,8 +25,10 @@ buttonScissors.onclick = () => {
 // GAME
 
 function clickChoice(playerChoice) {
-    roundWinner = playRound(getComputerChoice(), playerChoice);
+    computerChoice = getComputerChoice();
+    roundWinner = playRound(computerChoice, playerChoice);
     result.textContent = "score: " + playerScore + " " + computerScore;
+    displayChoices(computerChoice, playerChoice);
     updateRound(roundWinner);
     endGame();
 }
@@ -86,6 +91,11 @@ function playRound(computerChoice, playerChoice) {
         return "ERROR";
     }
 
+}
+
+function displayChoices(computerChoice, playerChoice) {
+    computerPicked.textContent = `computer picked ${computerChoice}`;
+    playerPicked.textContent = `player picked ${playerChoice}`;
 }
 
 const roundStatus = document.querySelector(".roundStatus");
