@@ -7,17 +7,17 @@ const buttonScissors = document.querySelector(".scissors");
 const result = document.querySelector(".result");
 const winnerMessage = document.querySelector(".message");
 
-buttonRock.addEventListener('click', () => {
+buttonRock.onclick = () => {
     clickChoice("rock");
-});
+};
 
-buttonPaper.addEventListener('click', () => {
+buttonPaper.onclick = () => {
     clickChoice("paper");
-});
+};
 
-buttonScissors.addEventListener('click', () => {
+buttonScissors.onclick = () => {
     clickChoice("scissors");
-});
+};
 
 // GAME
 
@@ -25,7 +25,7 @@ function clickChoice(playerChoice) {
     roundWinner = playRound(getComputerChoice(), playerChoice);
     result.textContent = "score: " + playerScore + " " + computerScore;
     updateRound(roundWinner);
-    endGame()
+    endGame();
 }
 
 let playerScore = 0;
@@ -97,7 +97,15 @@ function updateRound() {
 function endGame() {
     if (computerScore === 5) {
         winnerMessage.textContent = "Computer wins!";
+        buttonRock.onclick = null;
+        buttonPaper.onclick = null;
+        buttonScissors.onclick = null;
+        
     } else if (playerScore === 5) {
         winnerMessage.textContent = "player wins!";
+
+        buttonRock.onclick = null;
+        buttonPaper.onclick = null;
+        buttonScissors.onclick = null;
     }
 }
