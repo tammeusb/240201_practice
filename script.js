@@ -94,14 +94,14 @@ function playRound(computerChoice, playerChoice) {
 }
 
 function displayChoices(computerChoice, playerChoice) {
-    computerPicked.textContent = `computer picked ${computerChoice}`;
     playerPicked.textContent = `player picked ${playerChoice}`;
+    computerPicked.textContent = `computer picked ${computerChoice}`;
 }
 
 const roundStatus = document.querySelector(".roundStatus");
 
 function updateRound() {
-    roundStatus.textContent = roundWinner;
+    roundStatus.textContent = `${roundWinner} wins this round.`;
 };
 
 const resetButton = document.createElement('button');
