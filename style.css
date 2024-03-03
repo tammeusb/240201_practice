@@ -4,7 +4,11 @@ body {
     justify-content: space-between;
     align-items: center;
     text-align: center;
+
     height: 100vh;
+    margin: 0;
+
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
 .content {
@@ -12,35 +16,41 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+
     width: 100%;
-    background-color: rgb(255, 255, 255);
+
+    background-color: rgb(246, 255, 255);
 }
 
 header, footer {
     display: flex;
     align-items: center;
     justify-content: center;
+
     width: 100%;
     height: 50px;
+
     background-color: rgb(242, 233, 209);
 }
 
 .btn-container {
-    background-color: rgb(234, 251, 234);
-    padding: 20px;
-    border-radius: 20px;
     max-width: 500px;
     margin: 0 auto;
     margin-top: 50px;
+    padding: 20px;
+    border-radius: 20px;
+
+    background-color: rgb(242, 233, 209);
 }
 
 .btn {
-    background-color: rgb(229, 183, 240);
-    border: 2px solid rgb(130, 72, 130);
-    border-radius: 50%;
-    cursor: pointer;
     height: 50px;
     width: 70px;
+    border: 2px solid rgb(48, 117, 110);
+    border-radius: 50%;
+
+    background-color: rgb(188, 233, 240);
+    cursor: pointer;
 }
 
 .message, .roundStatus, .display-container, .result {
