@@ -101,7 +101,11 @@ function displayChoices(computerChoice, playerChoice) {
 const roundStatus = document.querySelector(".roundStatus");
 
 function updateRound() {
+    if (roundWinner === 'tie') {
+        roundStatus.textContent = `Tie!`;
+    } else {
     roundStatus.textContent = `${roundWinner} wins this round.`;
+    }
 };
 
 const resetButton = document.createElement('button');
